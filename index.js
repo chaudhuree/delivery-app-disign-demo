@@ -10,6 +10,8 @@ mongoose.connect('mongodb://localhost:27017/myapp', { useNewUrlParser: true, use
 // Create schema for package
 const packageSchema = new Schema({
   packageType: String,
+  senderName:String,
+  recipientName:String,
   paymentStatus: { type: String, enum: ['fully paid', 'cash on delivery'] },
   deliveryStatus: { type: String, enum: ['pending', 'in transit', 'delivered'] },
   destination: { type: addressSchema,required: true},
@@ -34,6 +36,8 @@ const Package = mongoose.model('Package', packageSchema);
 /*
 {
   packageType: "letter",
+  senderName:"sohan",
+  recipientName:"shimla",
   paymentStatus: 'cash on delivery,
   deliveryStatus: 'pending',
   destination: {
